@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .form-container {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .form-section {
+            margin-bottom: 30px;
+        }
+        .form-section h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #34495e;
+        }
+        select, input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .required::after {
+            content: " *";
+            color: red;
+        }
+        .file-upload {
+            border: 2px dashed #ddd;
+            padding: 20px;
+            text-align: center;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        button {
+            background: #3498db;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Request for Quotation (RFQ)</h1>
+        
+        <form id="rfqForm">
+            <!-- Technical Specifications -->
+            <div class="form-section">
+                <h2>Technical Specifications</h2>
+                
+                <div class="form-group">
+                    <label for="applicationType" class="required">Application Type</label>
+                    <select id="applicationType" required>
+                        <option value="">Select Application Type</option>
+                        <option value="roof-snow">Roof (Snow Load)</option>
+                        <option value="roof-non-snow">Roof (Non-Snow Load)</option>
+                        <option value="floor">Floor</option>
+                        <option value="cantilever">Cantilever Beam</option>
+                        <option value="custom">Custom Application</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="spanLength" class="required">Span Length</label>
+                    <select id="spanLength" required>
+                        <option value="">Select Span Length</option>
+                        <option value="<10">< 10 ft</option>
+                        <option value="10-20">10–20 ft</option>
+                        <option value="20-30">20–30 ft</option>
+                        <option value="30-40">30–40 ft</option>
+                        <option value="40+">40 ft</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="beamDimensions" class="required">Beam Dimensions</label>
+                    <select id="beamDimensions" required>
+                        <option value="">Select Beam Dimensions</option>
+                        <option value="3-1/8x12">3-1/8" x 12"</option>
+                        <option value="3-1/8x18">3-1/8" x 18"</option>
+                        <option value="5-1/8x12">5-1/8" x 12"</option>
+                        <option value="5-1/8x18">5-1/8" x 18"</option>
+                        <option value="6-3/4x24">6-3/4" x 24"</option>
+                        <option value="custom">Custom</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="loadType" class="required">Load Type</label>
+                    <select id="loadType" required>
+                        <option value="">Select Load Type</option>
+                        <option value="roof-snow">Roof: Snow Load</option>
+                        <option value="roof-non-snow">Roof: Non-Snow Load</option>
+                        <option value="floor-light">Floor: Light Load (residential or similar)</option>
+                        <option value="floor-heavy">Floor: Heavy Load (commercial or industrial)</option>
+                        <option value="unknown">Unknown</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="camberRequirement">Camber Requirement</label>
+                    <select id="camberRequirement">
+                        <option value="">Select Camber Requirement</option>
+                        <option value="none">No Camber</option>
+                        <option value="1/8">Yes, 1/8" per foot</option>
+                        <option value="1/4">Yes, 1/4" per foot</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="appearanceGrade">Appearance Grade</label>
+                    <select id="appearanceGrade">
+                        <option value="">Select Appearance Grade</option>
+                        <option value="industrial">Industrial (basic structural use)</option>
+                        <option value="architectural">Architectural (aesthetic, visible surfaces)</option>
+                        <option value="premium">Premium (high-quality finish)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="environmentalTreatment">Environmental Treatment</label>
+                    <select id="environmentalTreatment">
+                        <option value="">Select Environmental Treatment</option>
+                        <option value="indoor">Indoor Use (dry service conditions)</option>
+                        <option value="outdoor">Outdoor Use (treated for moisture)</option>
+                        <option value="fire-retardant">Fire Retardant</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="quantity" class="required">Quantity</label>
+                    <select id="quantity" required>
+                        <option value="">Select Quantity</option>
+                        <option value="1-5">1–5 beams</option>
+                        <option value="6-10">6–10 beams</option>
+                        <option value="11-20">11–20 beams</option>
+                        <option value="21+">21+ beams</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Customer Information -->
+            <div class="form-section">
+                <h2>Customer Information</h2>
+                
+                <div class="form-group">
+                    <label for="companyName" class="required">Company Name</label>
+                    <input type="text" id="companyName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="contactName" class="required">Contact Name</label>
+                    <input type="text" id="contactName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="required">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone" class="required">Phone</label>
+                    <input type="tel" id="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="projectName">Project Name</label>
+                    <input type="text" id="projectName">
+                </div>
+            </div>
+
+            <!-- File Upload -->
+            <div class="form-section">
+                <h2>Additional Documentation</h2>
+                <div class="form-group">
+                    <label for="fileUpload">Upload Files (drawings, specifications, etc.)</label>
+                    <div class="file-upload">
+                        <input type="file" id="fileUpload" multiple>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit">Submit RFQ</button>
+        </form>
+    </div>
+</body>
+</html>
